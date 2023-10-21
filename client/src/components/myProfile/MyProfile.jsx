@@ -114,7 +114,7 @@ const MyProfile = () => {
                         )}
                         <button onClick={() => setDeleteModal(prev => !prev)} className={classes.deleteBtn}>Delete Profile</button>
                     </div>
-                    <img className={classes.userProfileImg} src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : person} />
+                    <img className={classes.userProfileImg} src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} />
                     <div className={classes.userData}>
                         <h3>{user?.username}</h3>
                         <h4>{user?.email}</h4>

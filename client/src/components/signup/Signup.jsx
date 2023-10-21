@@ -42,7 +42,7 @@ const Signup = () => {
         formData.append('filename', filename)
         formData.append('image', photo)
 
-        await fetch(`http://localhost:5000/upload/image`, {
+        await fetch(`${process.env.REACT_APP_BACKEND_URL}/upload/image`, {
           headers: {
             'Authorization': `Bearer ${token}`
           },

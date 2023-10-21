@@ -148,7 +148,7 @@ const Navbar = () => {
             :
             <>
               <span className={classes.username} onClick={() => setShowModal(prev => !prev)}>Hello {user.username}!</span>
-              <img className={classes.userProfileImg} src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : person} />
+              <img className={classes.userProfileImg} src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} />
 
               {showModal && (
                 <div className={classes.userModal}>

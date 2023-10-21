@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000"
+const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}`
 
 export const request = async (url, method, headers = {}, body = {}, isNotStringified = false) => {
     let res
