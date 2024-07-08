@@ -62,7 +62,7 @@ const Signup = () => {
       }
 
       const data = await request(`/auth/register`, "POST", headers, { ...state, profileImg: filename })
-
+      console.log("data:", data);
 
       dispatch(register(data))
       navigate("/")

@@ -83,6 +83,7 @@ const PropertyDetail = () => {
       });
 
     //to clear the form once submitted
+    setShowForm(!showForm);
     e.target.reset();
   }
 

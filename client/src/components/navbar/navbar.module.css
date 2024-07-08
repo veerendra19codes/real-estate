@@ -210,9 +210,18 @@
 
 /* user modal */
 .username {
-    cursor: pointer;
+
     font-size: 30px;
     font-weight: bolder;
+}
+
+.edit {
+    cursor: pointer;
+    font-size: x-large;
+}
+
+.edit:hover {
+    color: "blue";
 }
 
 .userModal {

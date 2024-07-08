@@ -11,8 +11,8 @@ const userController = require("./controllers/userController");
 const commentController = require("./controllers/commentController");
 
 // db connecting 
-mongoose.set('strictQuery', false)
-mongoose.connect(process.env.MONGO_URL);
+// mongoose.set('strictQuery', false)
+mongoose.connect(process.env.MONGO_URL).then(() => console.log("database connected")).catch((err) => console.log("error in connected db:", err));
 
 // middlewares 
 app.use(cors());

@@ -15,6 +15,7 @@ import Properties from '../properties/Properties'
 import Footer from '../footer/Footer'
 import PropertiesN from '../Properties'
 import person from '../../assets/person.jpg'
+import { FiEdit } from "react-icons/fi";
 
 
 const Navbar = () => {
@@ -125,9 +126,9 @@ const Navbar = () => {
           <li onClick={scrollToTop} className={classes.listItem}>
             <Link className={classes.listItem} to="/" element={<App />}>Home</Link>
           </li>
-          <li className={classes.listItem}>
+          {/* <li className={classes.listItem}>
             About
-          </li>
+          </li> */}
           <li className={classes.listItem}>
             <Link className={classes.listItem} to="/propertiesn" element={
               <>
@@ -135,9 +136,9 @@ const Navbar = () => {
               </>
             }>Properties</Link>
           </li>
-          <li className={classes.listItem}>
+          {/* <li className={classes.listItem}>
             Contacts
-          </li>
+          </li> */}
         </ul>
         <div className={classes.right}>
           {!user ?
@@ -147,8 +148,9 @@ const Navbar = () => {
             </>
             :
             <>
-              <span className={classes.username} onClick={() => setShowModal(prev => !prev)}>Hello {user.username}!</span>
+              <span className={classes.username} >Hello {user.username}!</span>
               <img className={classes.userProfileImg} src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} />
+              <FiEdit className={classes.edit} onClick={() => setShowModal(prev => !prev)} />
 
               {showModal && (
                 <div className={classes.userModal}>
