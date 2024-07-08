@@ -22,6 +22,8 @@ const FeaturedProperties = () => {
         fetchFeatured()
     }, [])
 
+
+
     return (
         <div className={classes.container}>
             <div className={classes.wrapper}>
@@ -38,7 +40,7 @@ const FeaturedProperties = () => {
                             <div className={classes.details}>
                                 <div className={classes.priceAndOwner}>
                                     <span className={classes.price}> $ {property?.price}</span>
-                                    <img src={person} className={classes.owner} />
+                                    <img src={property.img ? `${process.env.REACT_APP_BACKEND_URL}/images/${property?.currentOwner?.profileImg}` : person} className={classes.owner} />
                                 </div>
                                 <div className={classes.moreDetails}>
                                     <span>{property?.beds}beds <FaBed className={classes.icon} /></span>

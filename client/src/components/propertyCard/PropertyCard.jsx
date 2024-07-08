@@ -6,6 +6,7 @@ import person from '../../assets/person.jpg'
 
 const PropertyCard = ({ property }) => {
     const ownerProfileImg = property?.currentOwner?.profileImg
+    console.log("img:", ownerProfileImg);
 
     return (
         <div key={property._id} className={classes.property}>
