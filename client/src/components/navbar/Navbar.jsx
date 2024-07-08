@@ -29,11 +29,11 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    setState(prev => {
-      return { ...prev, continent: 'europe', type: 'beach' }
-    })
-  }, [])
+  // useEffect(() => {
+  //   setState(prev => {
+  //     return { ...prev }
+  //   })
+  // }, [])
 
   // mobile
   const [showMobileNav, setShowMobileNav] = useState(false)

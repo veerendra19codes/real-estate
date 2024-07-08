@@ -45,6 +45,7 @@ const PropertySchema = new mongoose.Schema({
     },
     featured: {
         type: Boolean,
+        default: true,
     },
     bookmarkedUsers: {
         type: [String],
