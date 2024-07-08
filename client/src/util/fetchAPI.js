@@ -5,7 +5,10 @@ export const request = async (url, method, headers = {}, body = {}, isNotStringi
     let data
     switch (method) {
         case 'GET':
-            res = await fetch(BASE_URL + url, { headers })
+            const geturl = process.env.REACT_APP_BACKEND_URL+url;
+            console.log("url:", geturl);
+            res = await fetch(geturl, { headers })
+            console.log("res:",res);
             if(res.status !== 200 && res.status !== 201) throw new Error("ERROR")
             data = await res.json()
             return data
@@ -13,8 +16,10 @@ export const request = async (url, method, headers = {}, body = {}, isNotStringi
         case 'POST':
             // if we send form data, it is not content-type:application/json,
             // hence the bonus param 
+            const requrl = process.env.REACT_APP_BACKEND_URL+url;
+            console.log("url:", requrl);
             if (isNotStringified) {
-                res = await fetch(BASE_URL + url, { headers, method, body })
+                res = await fetch(requrl, { headers, method, body })
                 if(res.status !== 200 && res.status !== 201) throw new Error("ERROR")
                 data = await res.json()
             } else {
@@ -25,13 +30,17 @@ export const request = async (url, method, headers = {}, body = {}, isNotStringi
             return data
 
         case 'PUT':
-            res = await fetch(BASE_URL + url, { headers, method, body: JSON.stringify(body) })
+            const puturl = process.env.REACT_APP_BACKEND_URL+url;
+            console.log("url:", puturl);
+            res = await fetch(puturl, { headers, method, body: JSON.stringify(body) })
             if(res.status !== 200 && res.status !== 201) throw new Error("ERROR")
             data = await res.json()
             return data
 
         case 'DELETE':
-            res = await fetch(BASE_URL + url, { headers, method })
+            const deleteurl = process.env.REACT_APP_BACKEND_URL+url;
+            console.log("url:", deleteurl);
+            res = await fetch(deleteurl, { headers, method })
             if(res.status !== 200 && res.status !== 201) throw new Error("ERROR")
             data = await res.json()
             return data

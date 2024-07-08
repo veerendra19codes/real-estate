@@ -33,7 +33,10 @@ const Signup = () => {
 
       const data = await request('/auth/login', "POST", options, { email, password })
 
+
+
       dispatch(login(data))
+
       navigate("/")
     } catch (error) {
       setError(true)
