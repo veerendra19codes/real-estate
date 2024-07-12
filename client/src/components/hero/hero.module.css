@@ -1,4 +1,4 @@
-.container{
+.container {
     height: calc(100vh - 60px);
     width: 100%;
     background-image: url('../../assets/estate.jpg');
@@ -7,7 +7,7 @@
     background-blend-mode: darken;
 }
 
-.wrapper{
+.wrapper {
     max-width: 1180px;
     margin: 0 auto;
     height: 100%;
@@ -17,21 +17,22 @@
     justify-content: center;
 }
 
-.wrapper > h2{
+.wrapper>h2 {
     font-size: 46px;
     font-weight: bold;
     color: #fff;
-    white-space: nowrap;
+    white-space: wrap;
     margin-bottom: 2.5rem;
 }
 
-.wrapper > h5{
+.wrapper>h5 {
     color: #efefef;
-    font-size: 36px; 
+    font-size: 36px;
     margin-bottom: 3rem;
+    white-space: wrap;
 }
 
-.wrapper > .options{
+.wrapper>.options {
     width: 70%;
     background-color: #fff;
     padding: 1.25rem 1.5rem;
@@ -41,7 +42,7 @@
     align-items: center;
 }
 
-.options > select{
+.options>select {
     height: 40px;
     min-width: 160px;
     max-width: 200px;
@@ -55,17 +56,17 @@
     cursor: pointer;
 }
 
-.options > select:first-child{
+.options>select:first-child {
     color: #fff;
 }
 
-.options > .rangeInput{
+.options>.rangeInput {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.options > .searchIcon{
+.options>.searchIcon {
     padding: 0.6rem;
     width: 40px;
     height: 40px;
@@ -77,16 +78,28 @@
 
 /* RESPONSIVEE */
 @media only screen and (max-width: 768px) {
-    .wrapper > h2{
-        font-size: 40px;
-    }
-    
-    .wrapper > h5{
-        font-size: 30px; 
+    .wrapper {
+        padding: 0px 2rem;
     }
 
-    .wrapper > .options{
-        width: 90%;
+    .wrapper>h2 {
+        font-size: 20px;
+        margin-bottom: .5rem;
+
+    }
+
+    .wrapper>h5 {
+        font-size: 15px;
+    }
+
+    .wrapper>.options {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding: 2rem 1rem;
+    }
+
+    .options>select {
+        width: 100%;
     }
 }
-    

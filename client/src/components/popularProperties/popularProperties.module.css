@@ -53,7 +53,7 @@
   transform: rotate(0);
 }
 
-.properties> .property> img {
+.properties>.property>img {
   position: relative;
   height: 400px;
   width: 100%;
@@ -126,5 +126,34 @@
 @media only screen and (max-width: 768px) {
   .property {
     width: 65%
+  }
+
+  .wrapper {
+    padding: 0rem 1rem;
+  }
+
+  .titles {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .properties {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .property {
+    width: 300px;
+  }
+
+  .properties>.property>img {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 10px 50px 10px 50px;
+    transform: rotate(-1deg);
+    transition: 150ms all;
+    cursor: pointer;
   }
 }

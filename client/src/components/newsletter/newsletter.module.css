@@ -75,3 +75,19 @@
     display: none;
     z-index: -1;
 }
+
+/* RESPONSIVEE */
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        max-width: 100%;
+        padding: 0rem 1rem;
+    }
+
+    .titles {
+        align-items: flex-start;
+    }
+
+    .wrapper>.inputContainer {
+        width: 280px;
+    }
+}

@@ -27,18 +27,18 @@ const Comment = ({ comment, setComments }) => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <div className={classes.left}>
-          <img src={comment?.author?.profileImg ? `http://localhost:5000/images/${comment?.author?.profileImg}` : person}/>
+          <img src={comment?.author?.profileImg ? `${process.env.REACT_APP_BACEKEND_URL}/images/${comment?.author?.profileImg}` : person} alt="person" />
           <div className={classes.userData}>
             <h4>{comment?.author?.username}</h4>
             <span className={classes.timeago}>{format(comment?.createdAt)}</span>
           </div>
           <span>{comment?.text}</span>
         </div>
-          <div className={classes.right}>
-            {user?._id === comment?.author?._id && (
-              <BsTrash className={classes.trashIcon} onClick={handleDeleteComment} />
-            )}
-          </div>
+        <div className={classes.right}>
+          {user?._id === comment?.author?._id && (
+            <BsTrash className={classes.trashIcon} onClick={handleDeleteComment} />
+          )}
+        </div>
       </div>
     </div>
   )

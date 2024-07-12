@@ -104,6 +104,11 @@ const MyProfile = () => {
         <div className={classes.container}>
             <div className={classes.wrapper}>
                 <div className={classes.profile}>
+                    <img className={classes.userProfileImg} src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} />
+                    <div className={classes.userData}>
+                        <h3>{user?.username}</h3>
+                        <h4>{user?.email}</h4>
+                    </div>
                     <div className={classes.updateDeleteControls}>
                         <Link className={classes.updateBtn} to={`/update-profile`}>Update Profile</Link>
                         {deleteModal && (
@@ -113,11 +118,6 @@ const MyProfile = () => {
                             </div>
                         )}
                         <button onClick={() => setDeleteModal(prev => !prev)} className={classes.deleteBtn}>Delete Profile</button>
-                    </div>
-                    <img className={classes.userProfileImg} src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} />
-                    <div className={classes.userData}>
-                        <h3>{user?.username}</h3>
-                        <h4>{user?.email}</h4>
                     </div>
                 </div>
                 <div className={classes.buttons}>

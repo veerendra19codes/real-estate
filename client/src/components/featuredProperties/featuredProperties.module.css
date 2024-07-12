@@ -120,3 +120,10 @@
     font-size: 18px;
     color: #222;
 }
+
+/* RESPONSIVEE */
+@media only screen and (max-width: 768px) {
+    .featuredProperties>.featuredProperty {
+        width: 100%;
+    }
+}

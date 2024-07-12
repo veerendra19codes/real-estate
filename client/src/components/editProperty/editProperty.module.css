@@ -48,3 +48,24 @@
     padding: 0.5rem 0.25rem;
     width: 50%;
 }
+
+/* RESPONSIVEE */
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-top: 2rem;
+    }
+
+    .wrapper>h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .wrapper>form {
+        width: 95%;
+        gap: 0.5rem;
+    }
+
+    form>input {
+        width: 80%;
+        padding: 0.5rem 0rem;
+    }
+}

@@ -19,7 +19,6 @@ import MyProfile from './components/myProfile/MyProfile';
 import UpdateProfile from './components/updateProfile/UpdateProfile';
 import './App.css';
 import NotFound from './components/notFound/NotFound';
-import FeaturedProperties from './components/featuredProperties/FeaturedProperties';
 import PropertiesN from './components/Properties';
 
 function App() {

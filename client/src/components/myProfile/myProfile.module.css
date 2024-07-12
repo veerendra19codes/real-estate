@@ -19,9 +19,14 @@
 }
 
 .updateDeleteControls> :first-child {
-    text-decoration: none;
-    color: #222;
+    outline: none;
+    border: none;
     font-size: 18px;
+    border-radius: 8px;
+    background-color: blue;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
 }
 
 .updateDeleteControls> :last-child {
@@ -142,11 +147,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+
 }
 
-.property{
+.property {
     height: 100%;
     width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .properties>.property>.imgContainer {
@@ -256,10 +266,36 @@
     grid-gap: 3rem;
 }
 
-.noListed{
+.noListed {
     width: 100%;
     text-align: center;
     font-size: 32px;
     font-weight: bold;
     color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-top: 0.5rem;
+    }
+
+    .updateDeleteControls {
+        margin: 1rem 0rem;
+    }
+
+    .buttons {
+        margin-top: 0.5rem;
+        gap: 1rem;
+    }
+
+    .buttons>.button {
+        outline: none;
+        border: 1px solid transparent;
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+        background-color: blue;
+        color: #fff;
+        transition: 150ms;
+        cursor: pointer;
+    }
 }

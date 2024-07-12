@@ -137,9 +137,11 @@ const PropertyDetail = () => {
     <div className={classes.container}>
       <h3 style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '32px', marginTop: '-2.5rem' }}>Property Details</h3>
       <div className={classes.wrapper}>
+
         <div className={classes.left}>
           <img src={`${process.env.REACT_APP_BACKEND_URL}/images/${propertyDetail?.img}`} />
         </div>
+
         <div className={classes.right}>
           <h3 className={classes.title}>
             Title: {`${propertyDetail?.title}`}
@@ -151,10 +153,12 @@ const PropertyDetail = () => {
             }
           </h3>
           <div className={classes.details}>
+
             <div className={classes.typeAndContinent}>
               <div>Type: <span>{`${propertyDetail?.type}`}</span></div>
               <div>Continent: <span>{`${propertyDetail?.continent}`}</span></div>
             </div>
+
             <div className={classes.priceAndOwner}>
               <span className={classes.price}><span>Price: $ </span>{`${propertyDetail?.price}`}</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -225,6 +229,7 @@ const PropertyDetail = () => {
           </div>
         </div>
       )}
+
       <div className={classes.commentSection}>
         {/* comment input */}
         {user?._id == null && <h3 style={{ margin: '0.75rem', fontSize: '24px' }}>Sign in to be able to comment!</h3>}

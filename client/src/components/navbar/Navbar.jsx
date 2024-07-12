@@ -16,6 +16,9 @@ import Footer from '../footer/Footer'
 import PropertiesN from '../Properties'
 import person from '../../assets/person.jpg'
 import { FiEdit } from "react-icons/fi";
+import PopularProperties from '../popularProperties/PopularProperties'
+import Newsletter from '../newsletter/Newsletter'
+import Hero from '../hero/Hero'
 
 
 const Navbar = () => {
@@ -226,31 +229,42 @@ const Navbar = () => {
               </Link>
               <AiOutlineClose className={classes.mobileCloseIcon} onClick={() => setShowMobileNav(false)} />
               <ul className={classes.center}>
-                <li onClick={scrollToTop} className={classes.listItem}>
+                {/* <li onClick={scrollToTop} className={classes.listItem}>
                   Home
+                </li> */}
+                <li onClick={() => setShowMobileNav(false)} className={classes.listItem}>
+                  <Link className={classes.listItem} to="/" element={
+                    <>
+                      <Navbar />
+                      <Hero />
+                      <PopularProperties />
+                      {/* <FeaturedProperties /> */}
+                      <Newsletter />
+                      <Footer />
+                    </>
+                  }>Home</Link>
                 </li>
-                <li className={classes.listItem}>
-                  About
-                </li>
-                <li className={classes.listItem}>
-                  Featured
-                </li>
-                <li className={classes.listItem}>
-                  Contacts
+                <li onClick={() => setShowMobileNav(false)} className={classes.listItem}>
+                  <Link className={classes.listItem} to="/propertiesn" element={
+                    <>
+                      <PropertiesN />
+                    </>
+                  }>Properties</Link>
                 </li>
               </ul>
               <div className={classes.right}>
                 {!user ?
-                  <>
+                  <div className={classes.bottom}>
                     <Link to='/signup'>Sign up</Link>
                     <Link to='/signin'>Sign in</Link>
-                  </>
+                  </div>
                   :
-                  <>
-                    <span>Hello {user.username}!</span>
-                    <span className={classes.logoutBtn} onClick={handleLogout}>Logout</span>
+                  <div className={classes.bottom}>
+                    <span className={classes.list}>Hello {user.username}!</span>
+                    <Link to={`/my-profile`} onClick={() => setShowModal(prev => !prev)} className={classes.list}>My Profile</Link>
                     <Link onClick={() => setShowForm(true)} className={classes.list}>List your property</Link>
-                  </>
+                    <span className={classes.logoutBtn} onClick={handleLogout}>Logout</span>
+                  </div>
                 }
               </div>
 
