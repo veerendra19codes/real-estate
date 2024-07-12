@@ -288,7 +288,6 @@
         position: relative;
         height: 90vh;
         width: 90vw;
-        left: 5rem;
     }
 
     .listPropertyWrapper>h2 {
@@ -375,5 +374,9 @@
 
     .modal {
         background-color: #fff;
+    }
+
+    .listPropertyWrapper>form>select {
+        width: 80%;
     }
 }

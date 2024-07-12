@@ -16,9 +16,9 @@
 /* left */
 
 .left {
-    flex: 1;
+    /* flex: 1; */
     height: 750px;
-    width: 100%;
+    width: 50%;
 }
 
 .left>img {
@@ -370,6 +370,20 @@ a {
     .wrapper {
         flex-direction: column;
         align-items: center;
+    }
+
+    .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 250px;
+    }
+
+    .left>img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
     .title {

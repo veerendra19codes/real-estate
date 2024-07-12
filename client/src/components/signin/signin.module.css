@@ -120,7 +120,16 @@ form>p>a {
 
 @media only screen and (max-width: 768px) {
     .wrapper {
-        height: 65vh;
-        width: 40vw;
+        height: 50vh;
+        width: 80vw;
+    }
+
+    .wrapper>h2 {
+        margin: 1rem 0;
+        font-size: 36px;
+    }
+
+    .wrapper>form {
+        gap: 10px;
     }
 }

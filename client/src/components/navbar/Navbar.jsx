@@ -22,7 +22,7 @@ import Hero from '../hero/Hero'
 
 
 const Navbar = () => {
-  const [state, setState] = useState({})
+  const [state, setState] = useState({ continent: "Europe", type: "beach" })
   const [photo, setPhoto] = useState(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [showForm, setShowForm] = useState(false)
@@ -178,7 +178,7 @@ const Navbar = () => {
 
       {
         // desktop screen
-        !showMobileNav && showForm &&
+        showForm &&
         <div className={classes.listPropertyForm} onClick={handleCloseForm}>
           <div className={classes.listPropertyWrapper} onClick={(e) => e.stopPropagation()}>
             <h2>List Property</h2>
@@ -203,7 +203,7 @@ const Navbar = () => {
               <input value={state?.price} type="number" placeholder='Price' name="price" onChange={handleState} />
               <input value={state?.sqmeters} type="number" placeholder='Sq. meters' name="sqmeters" onChange={handleState} />
               <input value={state?.beds} type="number" placeholder='Beds' name="beds" step={1} min={1} onChange={handleState} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '50%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', width: '80%' }}>
                 <label htmlFor='photo'>Property picture <AiOutlineFileImage /></label>
                 <input
                   type="file"
@@ -268,15 +268,28 @@ const Navbar = () => {
                 }
               </div>
 
-              {showForm &&
+              {/* {showForm &&
                 <div className={classes.listPropertyForm} onClick={handleCloseForm}>
                   <div className={classes.listPropertyWrapper} onClick={(e) => e.stopPropagation()}>
                     <h2>List Property</h2>
                     <form onSubmit={handleListProperty}>
                       <input value={state?.title} type="text" placeholder='Title' name="title" onChange={handleState} />
-                      <input value={state?.type} type="text" placeholder='Type' name="type" onChange={handleState} />
+                      <select value={state?.type} required name='type' onChange={handleState}>
+                        <option disabled>Select Type</option>
+                        <option value='beach'>Beach</option>
+                        <option value='village'>Village</option>
+                        <option value='mountain'>Mountan</option>
+                      </select>
                       <input value={state?.desc} type="text" placeholder='Desc' name="desc" onChange={handleState} />
-                      <input value={state?.continent} type="text" placeholder='Continent' name="continent" onChange={handleState} />
+                      <select value={state?.continent} required name='continent' onChange={handleState}>
+                        <option disabled>Select Continent</option>
+                        <option value='Europe'>Europe</option>
+                        <option value='Asia'>Asia</option>
+                        <option value='South America'>South America</option>
+                        <option value='North America'>North America</option>
+                        <option value='Australia'>Australia</option>
+                        <option value='Africa'>Africa</option>
+                      </select>
                       <input value={state?.price} type="number" placeholder='Price' name="price" onChange={handleState} />
                       <input value={state?.sqmeters} type="number" placeholder='Sq. meters' name="sqmeters" onChange={handleState} />
                       <input value={state?.beds} type="number" placeholder='Beds' name="beds" step={1} min={1} onChange={handleState} />
@@ -294,7 +307,8 @@ const Navbar = () => {
                     </form>
                     <AiOutlineClose onClick={handleCloseForm} className={classes.removeIcon} />
                   </div>
-                </div>}
+                </div>
+              } */}
             </div>}
           {!showMobileNav && <GiHamburgerMenu onClick={() => setShowMobileNav(prev => !prev)} className={classes.hamburgerIcon} />}
         </div>
