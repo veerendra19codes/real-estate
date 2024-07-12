@@ -19,13 +19,13 @@ commentController.get('/:listingId', async (req, res) => {
 // create a comment
 commentController.post('/', verifyToken, async (req, res) => {
     try {
-        console.log("req.body:", req.body);
-        const userId = await req.user.id;
-        console.log("userID:", userId);
+        // console.log("req.body:", req.body);
+        // const userId = await req.user.id;
+        // console.log("userID:", userId);
 
-        const userBody = await User.findById(userId);
-        console.log("userBody:", userBody);
-        const createdComment = await (await Comment.create({ ...req.body, author: req.user.id, profileImg: userBody.profileImg}))
+        // const userBody = await User.findById(userId);
+        // console.log("userBody:", userBody);
+        const createdComment = await (await Comment.create({ ...req.body, author: req.user.id}))
             .populate('author', '-password')
         console.log("createdComment:",createdComment);
         return res.status(201).json(createdComment)

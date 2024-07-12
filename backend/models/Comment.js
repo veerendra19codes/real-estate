@@ -13,10 +13,6 @@ const CommentSchema = new mongoose.Schema({
     text: {
         type: String,
         required: true
-    },
-    profileImg: {
-        type: String,
-        required: true,
     }
 }, { timestamps: true })
 
