@@ -6,7 +6,7 @@ const propertyController = require('express').Router()
 // get all
 propertyController.get('/getAll', async (req, res) => {
     try {
-        const properties = await Property.find({}).populate("currentOwner", '-password')
+        const properties = await Property.find({}).populate("currentOwner", '-password').sort({ createdAt: -1 });
 
         console.log(properties)
 
@@ -19,7 +19,7 @@ propertyController.get('/getAll', async (req, res) => {
 // get featured
 propertyController.get('/find/featured', async (req, res) => {
     try {
-        const featuredProperties = await Property.find().populate("currentOwner", '-password')
+        const featuredProperties = await Property.find().populate("currentOwner", '-password').sort({ createdAt: -1 });
         return res.status(200).json(featuredProperties)
     } catch (error) {
         return res.status(500).json(error)
@@ -32,7 +32,7 @@ propertyController.get('/find', async (req, res) => {
     let properties = []
     try {
         if (type) {
-            properties = await Property.find(type).populate("currentOwner", '-password')
+            properties = await Property.find(type).populate("currentOwner", '-password').sort({ createdAt: -1 });
         } else {
             properties = await Property.find({})
         }
@@ -46,9 +46,9 @@ propertyController.get('/find', async (req, res) => {
 // TODO FETCH TYPE OF PROPERTIES. EX: {BEACH: 34, MOUNTAIN: 23}
 propertyController.get('/find/types', async (req, res) => {
     try {
-        const beachType = await Property.countDocuments({ type: 'beach' })
-        const mountainType = await Property.countDocuments({ type: 'mountain' })
-        const villageType = await Property.countDocuments({ type: 'village' })
+        const beachType = await Property.countDocuments({ type: 'beach' }).sort({ createdAt: -1 });
+        const mountainType = await Property.countDocuments({ type: 'mountain' }).sort({ createdAt: -1 });
+        const villageType = await Property.countDocuments({ type: 'village' }).sort({ createdAt: -1 });
 
         return res.status(200).json({ beach: beachType, mountain: mountainType, village: villageType })
     } catch (error) {
@@ -59,7 +59,7 @@ propertyController.get('/find/types', async (req, res) => {
 // fetch my properties
 propertyController.get('/find/my-properties', verifyToken, async (req, res) => {
     try {
-        const properties = await Property.find({ currentOwner: req.user.id })
+        const properties = await Property.find({ currentOwner: req.user.id }).sort({ createdAt: -1 });
 
         return res.status(200).json(properties)
     } catch (error) {
@@ -70,7 +70,7 @@ propertyController.get('/find/my-properties', verifyToken, async (req, res) => {
 // fetch bookmarked yachts
 propertyController.get('/find/bookmarked-properties', verifyToken, async (req, res) => {
     try {
-        const properties = await Property.find({ bookmarkedUsers: { $in: [req.user.id] } })
+        const properties = await Property.find({ bookmarkedUsers: { $in: [req.user.id] } }).sort({ createdAt: -1 });
 
         return res.status(200).json(properties)
     } catch (error) {
