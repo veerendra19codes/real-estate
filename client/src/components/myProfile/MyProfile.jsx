@@ -142,12 +142,12 @@ const MyProfile = () => {
                                 {listedProperties?.length > 0 ? listedProperties?.map((listedProperty) => (
                                     <div key={listedProperty._id} className={classes.property}>
                                         <Link to={`/propertyDetail/${listedProperty._id}`} className={classes.imgContainer}>
-                                            <img src={`http://localhost:5000/images/${listedProperty?.img}`} alt="" />
+                                            <img src={`${process.env.REACT_APP_BACKEND_URL}/images/${listedProperty?.img}`} alt="" />
                                         </Link>
                                         <div className={classes.details}>
                                             <div className={classes.priceAndOwner}>
                                                 <span className={classes.price}>$ {listedProperty.price}</span>
-                                                <img src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : person} className={classes.owner} />
+                                                <img src={user?.profileImg ? `${process.env.REACT_APP_BACKEND_URL}/images/${user?.profileImg}` : person} className={classes.owner} />
                                             </div>
                                             <div className={classes.moreDetails}>
                                                 <span>{listedProperty?.beds} <FaBed className={classes.icon} /></span>
@@ -181,7 +181,7 @@ const MyProfile = () => {
                                 {bookmarkedProperties?.length > 0 ? bookmarkedProperties?.map((bookmarkedProperty) => (
                                     <div key={bookmarkedProperty._id} className={classes.property}>
                                         <Link to={`/propertyDetail/${bookmarkedProperty._id}`} className={classes.imgContainer}>
-                                            <img src={`http://localhost:5000/images/${bookmarkedProperty?.img}`} alt="" />
+                                            <img src={`${process.env.REACT_APP_BACKEND_URL}/images/${bookmarkedProperty?.img}`} alt="" />
                                         </Link>
                                         <div className={classes.details}>
                                             <div className={classes.priceAndOwner}>

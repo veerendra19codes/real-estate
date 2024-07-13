@@ -9,7 +9,7 @@ const YachtCard = ({ yacht }) => {
         <Link to={`/yacht/${yacht._id}`} className={classes.container}>
             <div className={classes.wrapper}>
                 <div className={classes.imgContainer}>
-                    <img src={`http://localhost:5000/images/${yacht.img}`} />
+                    <img src={`${process.env.REACT_APP_BACKEND_URL}/images/${yacht.img}`} />
                 </div>
                 <h3 className={classes.title}>{yacht.title}</h3>
                 <div className={classes.priceAndMaxPassengers}>
